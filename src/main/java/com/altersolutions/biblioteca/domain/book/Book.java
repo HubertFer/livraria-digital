@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Optional;
 
 @Entity(name="books")
 @Table(name="books")
@@ -21,8 +23,15 @@ public class Book {
     private String bookName;
     private String authorName;
     private String publisher;
+    private boolean isBookAvailable;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
     private LocalDateTime timeStamp;
+
+    public Book(Optional<Book> bookDto) {
+    }
+
+    private LocalDateTime rentDate;
+    private LocalDateTime returningDate;
 }
