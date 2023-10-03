@@ -1,8 +1,10 @@
 package com.altersolutions.biblioteca.domain.book;
 
 import com.altersolutions.biblioteca.domain.user.User;
+import com.altersolutions.biblioteca.domain.util.ConstatsUtil;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -26,11 +28,13 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+    @DateTimeFormat(fallbackPatterns = ConstatsUtil.DATE_PATTERN_DEFAULT)
     private LocalDateTime timeStamp;
 
     public Book(Optional<Book> bookDto) {
     }
-
+    @DateTimeFormat(fallbackPatterns = ConstatsUtil.DATE_PATTERN_DEFAULT)
     private LocalDateTime rentalDate;
+    @DateTimeFormat(fallbackPatterns = ConstatsUtil.DATE_PATTERN_DEFAULT)
     private LocalDateTime returningDate;
 }

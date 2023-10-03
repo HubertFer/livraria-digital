@@ -48,11 +48,19 @@
         <td data-th-text="${book.bookName}"></td>
         <td data-th-text="${book.authorName}"></td>
         <td data-th-text="${book.publisher}"></td>
-        <td data-th-text="${book.isBookAvailable}"></td>
-        <td data-th-text="${book.rentalDate}"></td>
-        <td data-th-text="${book.returningDate}"></td>
+        <td data-th-text="${{book.isBookAvailable}}"></td>
+        <td data-th-text="${{book.rentalDate}}"></td>
+        <td data-th-text="${{book.returningDate}}"></td>
         <td>
-            <a th:href="@{'/edit/'+${book.id}}">Editar</a>
+            <div class="shadow-sm p-1 mb-1 bg-body-tertiary rounded">
+                <a class="nav-link" th:href="@{'/edit/'+${book.id}}">Editar</a>
+            </div>
+            <div class="shadow-sm p-1 mb-1 bg-body-tertiary rounded">
+                <a class="nav-link" th:href="@{'/rent/'+${book.id}}">Alugar</a>
+            </div>
+            <div class="shadow-sm p-1 mb-1 bg-body-tertiary rounded">
+                <a class="nav-link" th:href="@{'/return/'+${book.id}}">Devolver</a>
+            </div>
         </td>
     </tr>
 
