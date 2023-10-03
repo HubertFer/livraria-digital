@@ -25,6 +25,8 @@ public class User {
     @Column(unique = true)
     private String document;
     @Nonnull
+    private String password;
+    @Nonnull
     @Column(unique = true)
     private String email;
     @Nonnull

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Usuários</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/create">Cadastro de Usuários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/usersList">Lista de Usuários</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<form method="POST" action="/create">
+    <input type="hidden" th:value="${user.id}" name="id" />
+    <div class="mb-3">
+        <label for="input user name" class="form-label">Nome do usuário</label>
+        <input type="text" class="form-control" name="firstName" th:value="${user.firstName}">
+    </div>
+    <div class="mb-3">
+        <label for="nome" class="form-label">Apelido do usuário</label>
+        <input type="text" class="form-control" name="lastName" th:value="${{user.lastName}}">
+    </div>
+    <div class="mb-3">
+        <label for="input user's document" class="form-label">Documento do usuário</label>
+        <input type="text" class="form-control" name="document" th:value="${{user.document}}">
+    </div>
+    <div class="mb-3">
+        <label for="input user's password" class="form-label">Senha do usuário</label>
+        <input type="text" class="form-control" name="password" th:value="${{user.password}}">
+    </div>
+    <div class="mb-3">
+        <label for="input user's email" class="form-label">E-mail do usuário</label>
+        <input type="text" class="form-control" name="email" th:value="${{user.email}}">
+    </div>
+    <div class="mb-3">
+        <label for="input user's type" class="form-label">Tipo do usuário</label>
+        <input type="text" class="form-control" name="userType" th:value="${{user.userType}}">
+    </div>
+    <div class="mb-3">
+        <label for="input user's status" class="form-label">Tipo do usuário</label>
+        <input type="text" class="form-control" name="userStatus" th:value="${{user.userStatus}}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+
+</body>
+</html>
