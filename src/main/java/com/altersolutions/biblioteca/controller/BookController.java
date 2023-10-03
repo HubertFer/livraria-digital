@@ -31,11 +31,17 @@ public class BookController {
        return "redirect:/booksList";
     }
 
-    @GetMapping("/booksList")
+    @GetMapping("/books-list")
     public ModelAndView list(){
         ModelAndView mv = new ModelAndView("booksList");
         List<Book> list = bookservice.findAllBooks();
         mv.addObject("list", list);
         return mv;
+    }
+
+    @PostMapping("/rent")
+    public String rent(){
+
+        return null;
     }
 }
