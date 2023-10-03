@@ -43,8 +43,11 @@ public class BookService {
         }
         return isAvailable;
     }
-    public void saveBook(Book Book){
-        this.repository.save(Book);
+    public void saveBook(Book book){
+        LocalDateTime date = LocalDateTime.now();
+        book.setTimeStamp(date);
+        book.setBookAvailable(true);
+        this.repository.save(book);
     }
     public Book updateBookById (Long id) throws Exception {
         Optional<Book> BookDto = Optional.ofNullable((Book) repository.findBookById(id).

@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Optional;
 
 @Entity(name="books")
@@ -32,6 +31,6 @@ public class Book {
     public Book(Optional<Book> bookDto) {
     }
 
-    private LocalDateTime rentDate;
+    private LocalDateTime rentalDate;
     private LocalDateTime returningDate;
 }
