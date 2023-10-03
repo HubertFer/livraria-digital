@@ -31,7 +31,7 @@ public class UserController {
        return "redirect:/usersList";
     }
 
-    @GetMapping("/usersList")
+    @GetMapping("/users-list")
     public ModelAndView list(){
         ModelAndView mv = new ModelAndView("usersList");
         List<User> list = userService.findAllUsers();
