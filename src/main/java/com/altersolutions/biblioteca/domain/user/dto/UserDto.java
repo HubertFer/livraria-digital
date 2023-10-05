@@ -1,6 +1,5 @@
 package com.altersolutions.biblioteca.domain.user.dto;
 
-import com.altersolutions.biblioteca.domain.user.UserType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,13 +11,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {
-    private String firstName;
-    private String lastName;
     @Column(unique = true)
-    private String document;
-    @Column(unique = true)
-    private String email;
+    private String userName;
+
+    private String passwrod;
     private String userStatus;
-    @Enumerated(EnumType.STRING)
-    private UserType userType;
+
 }

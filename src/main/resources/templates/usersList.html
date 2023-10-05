@@ -19,10 +19,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/user">Cadastro</a>
+                    <a class="nav-link active" aria-current="page" href="/user">Cadastro de usuários </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/books-list">Livros</a>
+                    <a class="nav-link" href="/booksList"> Livros</a>
                 </li>
 
             </ul>
@@ -30,34 +30,30 @@
         </div>
     </div>
 </nav>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Apelido</th>
-        <th scope="col">Documento</th>
-        <th scope="col">E-mail</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Status</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr data-th-each="user : ${list}">
-        <td data-th-text="${user.id}"></td>
-        <td data-th-text="${user.firstName}"></td>
-        <td data-th-text="${user.lastName}"></td>
-        <td data-th-text="${user.document}"></td>
-        <td data-th-text="${user.email}"></td>
-        <td data-th-text="${user.userType}"></td>
-        <td data-th-text="${user.userStatus}"></td>
-        <td>
-            <a th:href="@{'/edit/'+${user.id}}">Editar</a>
-        </td>
-    </tr>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Status</th>
+            <th scope="col">Tipo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="user : ${list}">
+            <td data-th-text="${user.id}"></td>
+            <td data-th-text="${user.userName}"></td>
+            <td data-th-text="${user.userStatus}"></td>
+            <td data-th-text="${user.session}"></td>
+            <td>
+                <a th:href="@{'/disable/'+${user.id}}">Inativar</a><br>
+                <a th:href="@{'/enable/'+${user.id}}">Ativar</a>
+            </td>
+        </tr>
 
-    </tbody>
-</table>
-
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

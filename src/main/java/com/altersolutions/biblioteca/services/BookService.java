@@ -1,8 +1,8 @@
 package com.altersolutions.biblioteca.services;
 
 import com.altersolutions.biblioteca.domain.book.Book;
+import com.altersolutions.biblioteca.domain.user.Session;
 import com.altersolutions.biblioteca.domain.user.User;
-import com.altersolutions.biblioteca.domain.user.UserType;
 import com.altersolutions.biblioteca.domain.util.ConstatsUtil;
 import com.altersolutions.biblioteca.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +64,7 @@ public class BookService {
     }
 
     public Optional<Book> rentABook(Long id, User user) throws Exception {
-        if (user.getUserType().equals(UserType.ADMIN) || user.getUserType().equals(UserType.COMMON)){
+        if (user.getSession() == Session.ADMIN || user.getSession() == Session.COMMON){
             Optional<Book> book = Optional.of(new Book());
             book = Optional.ofNullable(repository.findBookById(id).
                     orElseThrow(() -> new Exception("Livro não encontrado")));
@@ -74,7 +74,7 @@ public class BookService {
             book.get().setReturningDate(returningDate);
             return book;
         }
-
+        //TODO: get this "return" better
         return null;
     }
     public Optional<Book> returnABook(Long id) throws Exception {

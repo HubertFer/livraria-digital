@@ -18,13 +18,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/create">Cadastro de Usuários</a>
+                    <a class="nav-link" href="/usersList">Lista de Usuários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/users-list">Lista de Usuários</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/books-list">Livros</a>
+                    <a class="nav-link" href="/booksList">Livros</a>
                 </li>
 
             </ul>
@@ -32,40 +29,20 @@
         </div>
     </div>
 </nav>
-
-<form method="POST" action="/create">
-    <input type="hidden" th:value="${user.id}" name="id" />
-    <div class="mb-3">
-        <label for="input user name" class="form-label">Nome do usuário</label>
-        <input type="text" class="form-control" name="firstName" th:value="${user.firstName}">
-    </div>
-    <div class="mb-3">
-        <label for="nome" class="form-label">Apelido do usuário</label>
-        <input type="text" class="form-control" name="lastName" th:value="${{user.lastName}}">
-    </div>
-    <div class="mb-3">
-        <label for="input user's document" class="form-label">Documento do usuário</label>
-        <input type="text" class="form-control" name="document" th:value="${{user.document}}">
-    </div>
-    <div class="mb-3">
-        <label for="input user's password" class="form-label">Senha do usuário</label>
-        <input type="text" class="form-control" name="password" th:value="${{user.password}}">
-    </div>
-    <div class="mb-3">
-        <label for="input user's email" class="form-label">E-mail do usuário</label>
-        <input type="text" class="form-control" name="email" th:value="${{user.email}}">
-    </div>
-    <div class="mb-3">
-        <label for="input user's type" class="form-label">Tipo do usuário</label>
-        <input type="text" class="form-control" name="userType" th:value="${{user.userType}}">
-    </div>
-    <div class="mb-3">
-        <label for="input user's status" class="form-label">Tipo do usuário</label>
-        <input type="text" class="form-control" name="userStatus" th:value="${{user.userStatus}}">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-</form>
+<div class="login">
+    <form method="POST" action="/create">
+        <input type="hidden" th:value="${user.id}" name="id" />
+        <div class="mb-3">
+            <label for="input user name" class="form-label">Novo usuário</label>
+            <input type="text" class="form-control" name="userName" th:value="${user.userName}">
+        </div>
+        <div class="mb-3">
+            <label for="input user's password" class="form-label">Senha</label>
+            <input type="text" class="form-control" name="password" th:value="${{user.password}}">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
 
 </body>
 </html>

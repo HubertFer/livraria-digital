@@ -18,10 +18,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/users-list">Usuários</a>
+                    <a class="nav-link active" aria-current="page" href="/usersList">Usuários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/books-list">Livros</a>
+                    <a class="nav-link" href="/booksList">Livros</a>
                 </li>
 
             </ul>
@@ -29,24 +29,24 @@
         </div>
     </div>
 </nav>
+<div class="container">
+    <form method="POST" action="/record">
+        <input type="hidden" th:value="${book.id}" name="id" />
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome do Livro</label>
+            <input type="text" class="form-control" name="bookName" th:value="${book.bookName}">
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Autor</label>
+            <input type="text" class="form-control" name="authorName" th:value="${{book.authorName}}">
+        </div>
+        <div class="mb-3">
+            <label for="publisher" class="form-label">Editora</label>
+            <input type="text" class="form-control" name="publisher" th:value="${{book.publisher}}">
+        </div>
 
-<form method="POST" action="/record">
-    <input type="hidden" th:value="${book.id}" name="id" />
-    <div class="mb-3">
-        <label for="name" class="form-label">Nome do Livro</label>
-        <input type="text" class="form-control" name="bookName" th:value="${book.bookName}">
-    </div>
-    <div class="mb-3">
-        <label for="author" class="form-label">Autor</label>
-        <input type="text" class="form-control" name="authorName" th:value="${{book.authorName}}">
-    </div>
-    <div class="mb-3">
-        <label for="publisher" class="form-label">Editora</label>
-        <input type="text" class="form-control" name="publisher" th:value="${{book.publisher}}">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-</form>
-
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
 </body>
 </html>

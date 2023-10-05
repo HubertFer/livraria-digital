@@ -22,10 +22,7 @@
                     <a class="nav-link active" aria-current="page" href="/book">Cadastrar Livro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/books-list">Listagem</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users-list">Usuários</a>
+                    <a class="nav-link" href="/usersList">Usuários</a>
                 </li>
 
             </ul>
@@ -33,42 +30,40 @@
         </div>
     </div>
 </nav>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Autor</th>
-        <th scope="col">Editora</th>
-        <th scope="col">Disponível</th>
-        <th scope="col">Data Locação</th>
-        <th scope="col">Data Devolução</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr data-th-each="book : ${list}">
-        <td data-th-text="${book.id}"></td>
-        <td data-th-text="${book.bookName}"></td>
-        <td data-th-text="${book.authorName}"></td>
-        <td data-th-text="${book.publisher}"></td>
-        <td data-th-text="${{book.isBookAvailable}}"></td>
-        <td data-th-text="${{book.rentalDate}}"></td>
-        <td data-th-text="${{book.returningDate}}"></td>
-        <td>
-            <div class="shadow-sm p-1 mb-1 bg-body-tertiary rounded">
-                <a class="nav-link" th:href="@{'/edit/'+${book.id}}">Editar</a>
-            </div>
-            <div class="shadow-sm p-1 mb-1 bg-body-tertiary rounded">
-                <a class="nav-link" th:href="@{'/rent/'+${book.id}}">Alugar</a>
-            </div>
-            <div class="shadow-sm p-1 mb-1 bg-body-tertiary rounded">
-                <a class="nav-link" th:href="@{'/return/'+${book.id}}">Devolver</a>
-            </div>
-        </td>
-    </tr>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Editora</th>
+            <th scope="col">Disponível</th>
+            <th scope="col">Data Locação</th>
+            <th scope="col">Data Devolução</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="book : ${list}">
+            <td data-th-text="${book.id}"></td>
+            <td data-th-text="${book.bookName}"></td>
+            <td data-th-text="${book.authorName}"></td>
+            <td data-th-text="${book.publisher}"></td>
+            <td data-th-text="${{book.isBookAvailable}}"></td>
+            <td data-th-text="${{book.rentalDate}}"></td>
+            <td data-th-text="${{book.returningDate}}"></td>
+            <td>
+                <div class="shadow-sm p-1 mb-1 bg-body-tertiary rounded">
+                    <a class="nav-link" th:href="@{'/rent/'+${book.id}}">Alugar</a>
+                </div>
+                <div class="shadow-sm p-1 mb-1 bg-body-tertiary rounded">
+                    <a class="nav-link" th:href="@{'/return/'+${book.id}}">Devolver</a>
+                </div>
+            </td>
+        </tr>
 
-    </tbody>
-</table>
-
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
